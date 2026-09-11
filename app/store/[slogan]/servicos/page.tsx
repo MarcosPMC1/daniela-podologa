@@ -22,8 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<any> {
     const baseUrl = getCanonicalUrl(host, "/");
 
     const isSubdomain = host.startsWith(`${slogan}.`);
-    const allowedPlans = ['basic-plus', 'pro'];
-    if (isSubdomain && (!data.plan || !allowedPlans.includes(data.plan))) {
+    if (isSubdomain && !data.hasPlan) {
       return { title: "Página não encontrada" };
     }
 
@@ -75,5 +74,5 @@ export default async function Page({ params }: Props) {
     notFound();
   }
 
-  return <ServicesDetailedPage data={data} />;
+  return <ServicesDetailedPage data={data as any} />;
 }

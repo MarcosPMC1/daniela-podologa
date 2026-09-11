@@ -19,8 +19,8 @@ interface Service {
   durationMinutes: number;
   isactive: boolean;
   customMedia?: string | null;
-  customMediaType?: "image" | "video";
-  customMediaPosition?: "top" | "center" | "bottom";
+  customMediaType?: string;
+  customMediaPosition?: string;
 }
 
 interface ServiceSinglePageProps {
@@ -38,8 +38,8 @@ interface ServiceSinglePageProps {
           services?: Array<{
             id: string;
             media?: string | null;
-            media_type?: "image" | "video";
-            media_position?: "top" | "center" | "bottom";
+            media_type?: string;
+            media_position?: string;
           }>;
         };
       };

@@ -28,7 +28,7 @@ function getContrastColor(hexColor: string): "white" | "black" {
   return l >= 0.5 ? "black" : "white"
 }
 
-export async function TenantPage({ data }: { data: any }) {
+export default async function TenantPage({ data }: { data: any }) {
   const page = data?.page
   const content = page?.content
 

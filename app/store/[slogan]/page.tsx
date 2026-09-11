@@ -1,5 +1,5 @@
 import { struct } from "@/app/lib/utils";
-import { TenantPage } from "@/app/components/storePage/page";
+import TenantPage from "@/app/components/storePage/store-page";
 import { getCanonicalUrl } from "@/lib/url";
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
