@@ -15,6 +15,7 @@ import ServicesSection from "./services-component"
 const LocationSection = dynamic(() => import("./location-section").then(mod => mod.LocationSection), { ssr: true })
 const GalleryComponent = dynamic(() => import("./gallery-component").then(mod => mod.GalleryComponent), { ssr: true })
 const ReviewsComponent = dynamic(() => import("./reviews-component").then(mod => mod.ReviewsComponent), { ssr: true })
+const BlogSection = dynamic(() => import("./blog-component").then(mod => mod.BlogSection), { ssr: true })
 const Footer = dynamic(() => import("./footer").then(mod => mod.Footer), { ssr: true })
 
 function getContrastColor(hexColor: string): "white" | "black" {
@@ -140,6 +141,20 @@ export default async function TenantPage({ data }: { data: any }) {
         />
       ),
       show: content?.reviews?.show !== false && (content?.reviews?.list?.length ?? 0) > 0
+    },
+    {
+      id: "blog",
+      order: content?.blog?.order ?? 6,
+      component: (
+        <BlogSection
+          key="blog"
+          content={content}
+          data={data}
+          primaryColor={primaryColor}
+          mutedTextColor={mutedTextColor}
+        />
+      ),
+      show: content?.blog?.show !== false && (content?.blog?.posts?.length ?? 0) > 0
     }
   ]
 
@@ -201,6 +216,7 @@ export default async function TenantPage({ data }: { data: any }) {
                   location: "Localização",
                   galeria: "Galeria",
                   reviews: "Avaliações",
+                  blog: "Blog",
                 }
                 return (
                   <a
